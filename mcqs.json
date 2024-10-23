@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Multiple Choice Questions Response Schema",
+  "type": "object",
+  "properties": {
+    "is_error": {
+      "type": "boolean",
+      "description": "True if any input was wrong, otherwise false."
+    },
+    "error_msg": {
+      "type": "string",
+      "description": "Detailed error message if any error occurred."
+    },
+    "questions": {
+      "type": "array",
+      "description": "A list of generated multiple-choice questions.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "The text of the multiple-choice question."
+          },
+          "options": {
+            "type": "object",
+            "description": "Answer options for the question.",
+            "properties": {
+              "A": {
+                "type": "string",
+                "description": "Option A for the question."
+              },
+              "B": {
+                "type": "string",
+                "description": "Option B for the question."
+              },
+              "C": {
+                "type": "string",
+                "description": "Option C for the question."
+              },
+              "D": {
+                "type": "string",
+                "description": "Option D for the question."
+              }
+            },
+            "required": ["A", "B", "C", "D"],
+            "additionalProperties": false
+          },
+          "correctAnswer": {
+            "type": "string",
+            "description": "The correct answer key for the question.",
+            "enum": ["A", "B", "C", "D"]
+          }
+        },
+        "required": ["question", "options", "correctAnswer"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["questions", "is_error"],
+  "additionalProperties": false,
+  "strict": true
+}
