@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-2020-12/schema",
   "title": "Multiple Choice Questions Response Schema",
   "type": "object",
   "properties": {
@@ -57,6 +57,5 @@
     }
   },
   "required": ["questions", "is_error"],
-  "additionalProperties": false,
-  "strict": true
+  "additionalProperties": false
 }
